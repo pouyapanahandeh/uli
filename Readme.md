@@ -1,8 +1,11 @@
 ## uli, simple package for URLs.
 
 ### Installation
-```npm i uli --save```
+```npm i ulio --save```
 
+#### How to use ulio:
+```js 
+import {ulio} from 'ulio';
 
 ### Optiones
 
