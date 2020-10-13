@@ -60,7 +60,9 @@ let isEncrypted = () => {
     }
 }
 
-module.exports.getUrl = getUrl;
+module.exports.getUrl = function(){
+    return getUrl();
+}
 module.exports.slashDivider = slashDivider;
 module.exports.getProtocol = getProtocol;
 module.exports.domainName = domainName;
