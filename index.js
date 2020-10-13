@@ -71,5 +71,5 @@ module.exports.sitePort  = sitePort;
 module.exports.searchQuery = searchQuery;
 module.exports.pathName = pathName;
 module.exports.hashAddress = hashAddress;
-module.exports.stringIndexFinder = stringIndexFinder;
+module.exports.StringIndexFinder = StringIndexFinder;
 module.exports.isEncrypted = isEncrypted;
