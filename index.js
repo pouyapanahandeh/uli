@@ -60,16 +60,4 @@ let isEncrypted = () => {
     }
 }
 
-module.exports.getUrl = function(){
-    return getUrl();
-}
-module.exports.slashDivider = slashDivider;
-module.exports.getProtocol = getProtocol;
-module.exports.domainName = domainName;
-module.exports.domainWithProtocol = domainWithProtocol;
-module.exports.sitePort  = sitePort;
-module.exports.searchQuery = searchQuery;
-module.exports.pathName = pathName;
-module.exports.hashAddress = hashAddress;
-module.exports.StringIndexFinder = StringIndexFinder;
-module.exports.isEncrypted = isEncrypted;
+export {getUrl, slashDivider, domainName, domainWithProtocol, sitePort, searchQuery, pathName, hashAddress, StringIndexFinder, isEncrypted};
