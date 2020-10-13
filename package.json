@@ -1,6 +1,6 @@
 {
   "name": "ulio",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "now you can work with URL in a way you like!",
   "main": "index.js",
   "scripts": {
