@@ -60,6 +60,8 @@ let isEncrypted = () => {
     }
 }
 
-module.getUrl = function(){
-    console.log(getUrl())
+module.exports = {
+    maiAddress: getUrl,
+    slashDivider: slashDivider,
+    isEncrypted: isEncrypted
 }
