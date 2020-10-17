@@ -1,5 +1,5 @@
 function getUrl(){
-    let originalUrl = global.location.href;
+    let originalUrl = window.location.href;
     return originalUrl;
 }
 
