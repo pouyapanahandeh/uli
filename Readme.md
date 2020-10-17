@@ -5,7 +5,9 @@
 
 #### How to use ulio:
 ```js 
-import {ulio} from 'ulio';
+const getUrl = require('ulio');
+
+console.log(getUrl());
 ``` 
 
 ### Optiones
