@@ -60,14 +60,16 @@ let isEncrypted = () => {
     }
 }
 
-export const getUrl = getUrl;
-export const slashDivider = slashDivider;
-export const getProtocol = getProtocol;
-export const domainName = domainName;
-export const domainWithProtocol = domainWithProtocol;
-export const sitePort = sitePort;
-export const searchQuery = searchQuery;
-export const pathName = pathName;
-export const hashAddress = hashAddress;
-export const StringIndexFinder = StringIndexFinder;
-export const isEncrypted = isEncrypted;
+module.exports = {
+    getUrl: getUrl,
+    slashDivider: slashDivider,
+    getProtocol: getProtocol,
+    domainName: domainName, 
+    domainWithProtocol: domainWithProtocol,
+    sitePort: sitePort,
+    searchQuery: searchQuery,
+    pathName: pathName,
+    hashAddress: hashAddress, 
+    StringIndexFinder: StringIndexFinder,
+    isEncrypted: isEncrypted,
+  }
