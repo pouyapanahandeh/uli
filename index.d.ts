@@ -7,5 +7,5 @@ export function sitePort(): string
 export function searchQuery(): string
 export function pathName(): string
 export function hashAddress(): string
-export function StringIndexFinder(nameOfString: string): string
+export function stringIndexFinder(nameOfString: string): string
 export function isEncrypted(): string

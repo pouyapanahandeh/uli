@@ -62,7 +62,7 @@ let hashAddress = () => {
     }
 }
 
-let StringIndexFinder = (nameOfString) => {
+let stringIndexFinder = (nameOfString) => {
     let stringToArray = nameOfString.split('');
     let stringArrayLength = stringToArray.length;
     let startingIndex = getUrl().indexOf(nameOfString);
@@ -89,6 +89,6 @@ module.exports = {
     searchQuery: searchQuery,
     pathName: pathName,
     hashAddress: hashAddress, 
-    StringIndexFinder: StringIndexFinder,
+    stringIndexFinder: stringIndexFinder,
     isEncrypted: isEncrypted,
   }
