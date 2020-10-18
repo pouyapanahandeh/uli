@@ -4,7 +4,7 @@ var getUrl = function(){
 }
 
 var slashDivider = function(){
-    let sd = getUrl().split('/');
+    let sd = window.location.href.split('/');
     return sd;
 }
 
