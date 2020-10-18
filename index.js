@@ -3,4 +3,10 @@ var getUrl = function(){
     return originalUrl;
 }
 
+var slashDivider = function(){
+    let sd = getUrl().split('/');
+    return sd;
+}
+
 module.exports = getUrl;
+module.exports = slashDivider;
