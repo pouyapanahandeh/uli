@@ -1,4 +1,5 @@
-## uli, simple package for URLs.
+## ulio, simple package for URLs.
+> version one.
 
 ### Installation
 ```npm i ulio --save```
