@@ -25,22 +25,41 @@ let domainWithProtocol = () => {
 
 let sitePort = () => {
     let sp = location.port;
-    return sp;
+    if(sp){
+        return "port number is: " + sp;
+    } else {
+        return "couldn't find port";
+    }
+    
 }
 
 let searchQuery = () => {
     let sq = location.search;
-    return sq;
+    if(sq){
+        return sq;
+    } else{
+        return "search query doesn't exist";
+    }
+    
 }
 
 let pathName = () => {
     let pn = location.pathname;
-    return pn;
+    if(pn){
+        return pn;
+    } else {
+        return "path name doesn't exist";
+    }
+    
 }
 
 let hashAddress = () => {
-    let hd = location.hash;
-    return hd;
+    let ha = location.hash;
+    if(ha){
+        return ha;
+    } else {
+        return "hash address doesn't exist";
+    }
 }
 
 let StringIndexFinder = (nameOfString) => {
@@ -54,9 +73,9 @@ let StringIndexFinder = (nameOfString) => {
 
 let isEncrypted = () => {
     if(getUrl().includes("https")){
-        return true;
+        return true + " this wesbiste is encrypted";
     } else {
-        return false;
+        return false + "this website is not encrypted";
     }
 }
 

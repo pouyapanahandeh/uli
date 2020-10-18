@@ -5,9 +5,10 @@
 
 #### How to use ulio:
 ```js 
-const getUrl = require('ulio');
+const {domainName, domainWithProtocol} = require('ulio');
 
-console.log(getUrl());
+console.log(domainWithProtocol());
+console.log(domainName());
 ``` 
 
 ### Optiones
@@ -59,7 +60,7 @@ hashAddress()
 
 #### Find specific string index in domain:
 ```js
-StringIndexFinder()
+StringIndexFinder("writeStringHere")
 ```
 
 #### Check domain if it's encrypted or not:
