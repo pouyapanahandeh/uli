@@ -4,7 +4,7 @@
   "description": "now you can work with URL in a way you like!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/pouyapanahandeh/uli/issues"
   },
-  "homepage": "https://github.com/pouyapanahandeh/uli#readme"
+  "homepage": "https://github.com/pouyapanahandeh/uli#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
