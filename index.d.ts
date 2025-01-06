@@ -1,11 +1,19 @@
-export function getUrl(): string
-export function slashDivider(): string[]
-export function getProtocol(): string
-export function domainName(): string
-export function domainWithProtocol(): string
-export function sitePort(): string
-export function searchQuery(): string
-export function pathName(): string
-export function hashAddress(): string
-export function stringIndexFinder(nameOfString: string): string
-export function isEncrypted(): string
+export function getUrl(url?: string): string;
+export function slashDivider(url?: string): string[];
+export function getProtocol(url?: string): string | 'Invalid URL';
+export function domainName(url?: string): string | 'Invalid URL';
+export function domainWithProtocol(url?: string): string | 'Invalid URL';
+export function sitePort(url?: string): string | 'Invalid URL';
+export function searchQuery(url?: string): string | 'Invalid URL';
+export function pathName(url?: string): string | 'Invalid URL';
+export function hashAddress(url?: string): string | 'Invalid URL';
+export function stringIndexFinder(url?: string, nameOfString?: string): string;
+export function isEncrypted(url?: string): boolean;
+export function isValidUrl(url?: string): boolean;
+export function addQueryParam(url?: string, key?: string, value?: string): string | 'Invalid URL';
+export function removeQueryParam(url?: string, key?: string): string | 'Invalid URL';
+export function updateQueryParam(url?: string, key?: string, value?: string): string | 'Invalid URL';
+export function encodeUrlComponent(component?: string): string;
+export function decodeUrlComponent(component?: string): string;
+export function encodeIDN(domain?: string): string;
+export function decodeIDN(domain?: string): string;
