@@ -1,94 +1,173 @@
-var getUrl = function(){
-    let originalUrl = window.location.href;
-    return originalUrl;
-}
+// Import punycode for IDN support
+const punycode = require('punycode');
 
-var slashDivider = function(){
-    let sd = window.location.href.split('/');
-    return sd;
-}
+// Retrieve the full URL
+const getUrl = (url = '') => url;
 
-let getProtocol = () => {
-    let gp = location.protocol;
-    return gp;
-}
+// Divide URL based on "/"
+const slashDivider = (url = '') => url.split('/');
 
-let domainName = () => {
-    let dn = location.hostname;
-    return dn;
-}
+// Get protocol of the URL
+const getProtocol = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.protocol;
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let domainWithProtocol = () => {
-    let dwp = location.origin;
-    return dwp;
-}
+// Get domain name
+const domainName = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.hostname;
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let sitePort = () => {
-    let sp = location.port;
-    if(sp){
-        return "port number is: " + sp;
-    } else {
-        return "couldn't find port";
-    }
-    
-}
+// Get domain with protocol
+const domainWithProtocol = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return `${parsedUrl.protocol}//${parsedUrl.hostname}`;
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let searchQuery = () => {
-    let sq = location.search;
-    if(sq){
-        return sq;
-    } else{
-        return "search query doesn't exist";
-    }
-    
-}
+// Get site port
+const sitePort = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.port ? `Port number is: ${parsedUrl.port}` : "Couldn't find port";
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let pathName = () => {
-    let pn = location.pathname;
-    if(pn){
-        return pn;
-    } else {
-        return "path name doesn't exist";
-    }
-    
-}
+// Get search query
+const searchQuery = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.search ? parsedUrl.search : "Search query doesn't exist";
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let hashAddress = () => {
-    let ha = location.hash;
-    if(ha){
-        return ha;
-    } else {
-        return "hash address doesn't exist";
-    }
-}
+// Get path name
+const pathName = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.pathname ? parsedUrl.pathname : "Path name doesn't exist";
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
-let stringIndexFinder = (nameOfString) => {
-    let stringToArray = nameOfString.split('');
-    let stringArrayLength = stringToArray.length;
-    let startingIndex = getUrl().indexOf(nameOfString);
-    let endIndex = parseInt(stringArrayLength) + parseInt(startingIndex) - 1;
-    return "from index " + startingIndex + ", end index " + endIndex ;
-} 
+// Get hash address
+const hashAddress = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.hash ? parsedUrl.hash : "Hash address doesn't exist";
+  } catch {
+    return 'Invalid URL';
+  }
+};
 
+// Find specific string index in URL
+const stringIndexFinder = (url = '', nameOfString = '') => {
+  const startingIndex = url.indexOf(nameOfString);
+  if (startingIndex === -1) return 'String not found';
+  const endIndex = startingIndex + nameOfString.length - 1;
+  return `From index ${startingIndex}, end index ${endIndex}`;
+};
 
-let isEncrypted = () => {
-    if(getUrl().includes("https")){
-        return true + " this wesbiste is encrypted";
-    } else {
-        return false + "this website is not encrypted";
-    }
-}
+// Check if the URL is encrypted
+const isEncrypted = (url = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.protocol === 'https:';
+  } catch {
+    return false;
+  }
+};
+
+// Validate if a string is a valid URL
+const isValidUrl = (url = '') => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+// Add query parameter to URL
+const addQueryParam = (url = '', key = '', value = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    parsedUrl.searchParams.append(key, value);
+    return parsedUrl.toString();
+  } catch {
+    return 'Invalid URL';
+  }
+};
+
+// Remove query parameter from URL
+const removeQueryParam = (url = '', key = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    parsedUrl.searchParams.delete(key);
+    return parsedUrl.toString();
+  } catch {
+    return 'Invalid URL';
+  }
+};
+
+// Update query parameter in URL
+const updateQueryParam = (url = '', key = '', value = '') => {
+  try {
+    const parsedUrl = new URL(url);
+    parsedUrl.searchParams.set(key, value);
+    return parsedUrl.toString();
+  } catch {
+    return 'Invalid URL';
+  }
+};
+
+// Encode URL component
+const encodeUrlComponent = (component = '') => encodeURIComponent(component);
+
+// Decode URL component
+const decodeUrlComponent = (component = '') => decodeURIComponent(component);
+
+// Encode internationalized domain name (IDN)
+const encodeIDN = (domain = '') => punycode.toASCII(domain);
+
+// Decode internationalized domain name (IDN)
+const decodeIDN = (domain = '') => punycode.toUnicode(domain);
 
 module.exports = {
-    getUrl: getUrl,
-    slashDivider: slashDivider,
-    getProtocol: getProtocol,
-    domainName: domainName, 
-    domainWithProtocol: domainWithProtocol,
-    sitePort: sitePort,
-    searchQuery: searchQuery,
-    pathName: pathName,
-    hashAddress: hashAddress, 
-    stringIndexFinder: stringIndexFinder,
-    isEncrypted: isEncrypted,
-  }
+  getUrl,
+  slashDivider,
+  getProtocol,
+  domainName,
+  domainWithProtocol,
+  sitePort,
+  searchQuery,
+  pathName,
+  hashAddress,
+  stringIndexFinder,
+  isEncrypted,
+  isValidUrl,
+  addQueryParam,
+  removeQueryParam,
+  updateQueryParam,
+  encodeUrlComponent,
+  decodeUrlComponent,
+  encodeIDN,
+  decodeIDN
+};
